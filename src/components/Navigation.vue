@@ -12,6 +12,10 @@
                         <router-link :to="{name: 'Home'}"><Logo/></router-link><br />
                         <vue-typer :text='["More coins","More data", "More lightweight", "More useful", "More API"]' :pre-erase-delay='5000' erase-style="clear"></vue-typer>
                 </b-navbar-brand>
+                <let-it-snow
+                v-bind="snowConf"
+                :show="show"    
+                ></let-it-snow>
 
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -81,7 +85,18 @@ export default {
     },
     data() {
         return {
-            name: "Sitepoint"
+            name: "Sitepoint",
+            snowConf: {
+            windPower : 1,  
+            speed : 3,
+            count : 12,
+            size : 10,
+            opacity : 1,
+            images: ['https://raw.githubusercontent.com/bob-chen/let_it_snow/master/demo/snow.png',
+                    'https://dgudge.com/eggsnow.png',
+                    'https://raw.githubusercontent.com/bob-chen/let_it_snow/master/demo/tree.png']
+            },
+            show: false    
         }
     },
     computed: {
@@ -95,6 +110,7 @@ export default {
             if(sound) {
                 var audio = new Audio(sound);
                 audio.play();
+                this.show = true
                 alert("We wish you a very BC christmas !");
             }
         },
@@ -108,6 +124,9 @@ export default {
                 })
             })
         }
+    },
+    mounted(){
+          
     }
 
 

@@ -2,10 +2,6 @@
   <div class="container">
     <div class="typewriter">
       <Typewriter/>
-      <let-it-snow
-      v-bind="snowConf"
-      :show="show"    
-    ></let-it-snow>
     </div>
 
     <div>
@@ -144,7 +140,7 @@ export default {
   },
   data() {
     return {
-      retailers: [],
+      retailers: []
     }
   }, 
   methods: {
